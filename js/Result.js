@@ -1,14 +1,22 @@
+import handleAsRange from './action/handleAsRange.js'
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 const Result = {
     html(titleResult, isWin, correctAnswer, rounds , highScore){
+        
+        const randomIconFeeling = (feel) =>{
+            const index = Math.floor(Math.random() * this.iconFelling[feel].length)
+            return this.iconFelling[feel][index]
+        }
         const percentageRounds = highScore.rounds !== 0 ? 
             Math.floor(rounds / highScore.rounds * 100) : 100
         const title = `
-        <div class="result-title">
+        <div class="result-title result-title${isWin ? "--win": "--lose" }">
             ${titleResult}
-            ${isWin ? `<img src="./img/winner-win.svg" alt="" class="result-icon-win">` : `<img src="./img/3loser-lose.svg" alt="" class="result-icon-win">`}
-        </div>`
+        </div>
+        ${isWin ? `<img ${randomIconFeeling("happy")} alt="" class="result-icon">` : `<img ${randomIconFeeling("bad")} alt="" class="result-icon">`}
+        
+        `
         let content = isWin ?
             `<div class="result-content">  
                 ${  
@@ -20,7 +28,6 @@ const Result = {
                         <span class="">High Score: </span>
                         <span class="">Rounds: ${highScore.rounds} </span>
                         <div class ="as-range-old "><span></span></div>
-
                     `: correctAnswer >= highScore.correctAnswer ? `
                         <span class="">Your Score:</span>
                         <span class="">Correct Answer: ${correctAnswer}% </span>
@@ -28,7 +35,6 @@ const Result = {
                         <span class="">High Score: </span>
                         <span class="">Correct Answer: ${highScore.correctAnswer}% </span>
                         <div class ="as-range-old"><span></span></div>
-                    
                     `:``
                 }
             </div>`:
@@ -55,30 +61,23 @@ const Result = {
                 }
             </div>
         `
-        const handleAddModifier = (varNeedToCompare,selector) =>{
-            if(!selector) return false
-            if (varNeedToCompare <= 45) {
-                selector.classList.add('as-range--low')
-            }else if(varNeedToCompare > 45 && varNeedToCompare <= 70){
-                selector.classList.add('as-range--medium')
-            }else{
-                selector.classList.add('as-range--high')
-            }
-        }
-
-        setTimeout(() => {
-            const correctAsRange = $('.as-range')
-            const correctAsRangeRounds = $('.as-range-rounds')
-            handleAddModifier(highScore.correctAnswer , $('.as-range-old'))
-            handleAddModifier(percentageRounds,$('.as-range-rounds'))
-            handleAddModifier(correctAnswer,$('.as-range'))            
-            $('.as-range span') ? $('.as-range span').style.width = `${correctAnswer}%` : false
-            $('.as-range-old span') ?  $('.as-range-old span').style.width = `${highScore.correctAnswer}%` : false
-            $('.as-range-rounds span') ? $('.as-range-rounds span').style.width = `${percentageRounds}%` : false
-            
-        },500);
+        handleAsRange(correctAnswer, rounds , highScore)
         return title + content
     },
+    iconFelling:{
+        "bad":[
+            'src = "../img/icon-felling/bad/3loser-lose.svg"',
+            'src = "../img/icon-felling/bad/confused_face_smiley_icon_123392.svg"',
+            'src = "../img/icon-felling/bad/emoji_emoticons_tongue_icon_123404.png"',
+            'src = "../img/icon-felling/bad/lose.svg"',
+            'src = "../img/icon-felling/bad/shock_shocked_smiley_icon_123400.svg"'
+        ],
+        "happy":[
+            'src = "../img/icon-felling/happy/cool_smiley_sunglasses_icon_123402.svg"',
+            'src = "../img/icon-felling/happy/happy_smiley_icon_123391.svg"',
+            'src = "../img/icon-felling/happy/heart_love_smiley_icon_123396.svg"'
+        ]
+    }
 }
 
-export const resultHtml = Result.html
+export default Result
