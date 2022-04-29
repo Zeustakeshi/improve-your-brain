@@ -14,7 +14,7 @@ const Result = {
         <div class="result-title result-title${isWin ? "--win": "--lose" }">
             ${titleResult}
         </div>
-        ${isWin ? `<img ${randomIconFeeling("happy")} alt="" class="result-icon">` : `<img ${randomIconFeeling("bad")} alt="" class="result-icon">`}
+        ${isWin ? `<img ${randomIconFeeling("happy")} alt="" class="result-icon">` : `<img src = "../img/icon-felling/bad/3loser-lose.svg" alt="" class="result-icon">`}
         
         `
         let content = isWin ?
