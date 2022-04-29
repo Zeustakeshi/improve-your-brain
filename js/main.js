@@ -52,7 +52,7 @@ const App = {
                     hourGlass.style.animation = ""
                     _this.isStart = false
                     _this.handleScores(_this.currentScores, _this.highScore)
-                },5)
+                },50)
             }  
         }) 
         // handle click number 1
