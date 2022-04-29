@@ -14,7 +14,7 @@ const Result = {
         <div class="result-title result-title${isWin ? "--win": "--lose" }">
             ${titleResult}
         </div>
-        ${isWin ? `<img src= ${randomIconFeeling("happy")} alt="" class="result-icon">` : `<img src= ${randomIconFeeling("bad")} alt="" class="result-icon">`}
+        ${isWin ? `<img ${randomIconFeeling("happy")} alt="" class="result-icon">` : `<img ${randomIconFeeling("bad")} alt="" class="result-icon">`}
         
         `
         let content = isWin ?
@@ -61,41 +61,21 @@ const Result = {
                 }
             </div>
         `
-        // const handleAddModifier = (varNeedToCompare,selector) =>{
-        //     if(!selector) return false
-        //     if (varNeedToCompare <= 45) {
-        //         selector.classList.add('as-range--low')
-        //     }else if(varNeedToCompare > 45 && varNeedToCompare <= 70){
-        //         selector.classList.add('as-range--medium')
-        //     }else{
-        //         selector.classList.add('as-range--high')
-        //     }
-        // }
-
-        // setTimeout(() => {
-        //     handleAddModifier(highScore.correctAnswer , $('.as-range-old'))
-        //     handleAddModifier(percentageRounds,$('.as-range-rounds'))
-        //     handleAddModifier(correctAnswer,$('.as-range'))            
-        //     $('.as-range span') ? $('.as-range span').style.width = `${correctAnswer}%` : false
-        //     $('.as-range-old span') ?  $('.as-range-old span').style.width = `${highScore.correctAnswer}%` : false
-        //     $('.as-range-rounds span') ? $('.as-range-rounds span').style.width = `${percentageRounds}%` : false
-            
-        // },500);
         handleAsRange(correctAnswer, rounds , highScore)
         return title + content
     },
     iconFelling:{
         "bad":[
-            '../img/icon-felling/bad/3loser-lose.svg',
-            '../img/icon-felling/bad/confused_face_smiley_icon_123392.svg',
-            '../img/icon-felling/bad/emoji_emoticons_tongue_icon_123404.png',
-            '../img/icon-felling/bad/lose.svg',
-            '../img/icon-felling/bad/shock_shocked_smiley_icon_123400.svg'
+            'src = "../img/icon-felling/bad/3loser-lose.svg"',
+            'src = "../img/icon-felling/bad/confused_face_smiley_icon_123392.svg"',
+            'src = "../img/icon-felling/bad/emoji_emoticons_tongue_icon_123404.png"',
+            'src = "../img/icon-felling/bad/lose.svg"',
+            'src = "../img/icon-felling/bad/shock_shocked_smiley_icon_123400.svg"'
         ],
         "happy":[
-            '../img/icon-felling/happy/cool_smiley_sunglasses_icon_123402.svg',
-            '../img/icon-felling/happy/happy_smiley_icon_123391.svg',
-            '../img/icon-felling/happy/heart_love_smiley_icon_123396.svg'
+            'src = "../img/icon-felling/happy/cool_smiley_sunglasses_icon_123402.svg"',
+            'src = "../img/icon-felling/happy/happy_smiley_icon_123391.svg"',
+            'src = "../img/icon-felling/happy/heart_love_smiley_icon_123396.svg"'
         ]
     }
 }
