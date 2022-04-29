@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- <link rel="stylesheet" href="./css/base.css"> -->
+    <link rel="stylesheet" href="./css/animation.css">
+    <link rel="stylesheet" href="./css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>improve your brain</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="home-screen">
+            <div class="curtain-top">
+                <span>Bigger Numbers</span>
+            </div>
+            <div class="loader"></div>
+            <div class="curtain-bottom"></div>
+        </div>
+        <div class="app-content">
+            <div class="help">
+                <ion-icon name="help-outline"></ion-icon>
+            </div>
+            <div class="timer">
+                <div class="time">
+                    <span class="timer-munites">00</span>:
+                    <span class="timer-seconds">00</span>
+                </div>
+                <div class="label">
+                    <img src="./img/hourglass.svg" alt="">
+                </div>
+            </div>
+            <div class="high-score">
+                High Score: 
+                <div class="precentage">Correct Answer: 0%</div>
+                <div class="rounds">Rounds: 0</div>
+            </div>
+            <div class="number">
+                <div class="number-1">0</div>
+                <img src="./img/scale_2.svg" alt="">
+                <div class="number-2">0</div>
+            </div>
+        </div>
+        <div class="app-modal" ></div>
+        <div class="control">
+            <div class="play-btn">Start</div>
+        </div>
+        <div class="messages">
+            <span class="messages-icon">
+                <ion-icon name="checkmark-circle-sharp" class = "messages-correct-icon"></ion-icon>
+                <ion-icon name="close-circle-sharp" class = "messages-wrong-icon"></ion-icon>
+            </span>
+            <span class="messages-content">Correct!</span>
+        </div>
+        
+    </div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
+
