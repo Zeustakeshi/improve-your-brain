@@ -61,7 +61,7 @@ const Result = {
                 }
             </div>
         `
-        handleAsRange(correctAnswer, rounds , highScore)
+        handleAsRange(correctAnswer, rounds , highScore, 0)
         return title + content
     },
     iconFelling:{
