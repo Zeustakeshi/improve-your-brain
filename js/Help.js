@@ -74,6 +74,19 @@ const Help = {
         historyPlay(highScore) {
             $('.help-history-play').addEventListener('click', ()=>{
                 let historyPlayHtml 
+                const historyPlayItem = historyPlay.history.map((ele) =>{
+                    return (`
+                    <li class="history-item">
+                        <div class="history-item-c">
+                            <span>Correct Answer: ${ele.correctAnswer}% </span>
+                            <div class ="as-range"><span></span></div>
+                        </div>
+                        <div class="history-item-r">
+                            <span>Rounds: ${ele.rounds}</span>
+                            <div class ="as-range-rounds"><span></span></div>
+                        </div>
+                    </li>`)
+                })
                 if (historyPlay.history.length === 0) {
                     historyPlayHtml = `
                         <div class="help-option history-play-content history-play-content--no ">
@@ -87,29 +100,18 @@ const Help = {
                         </div>
                     `
                 }else{
-                   
                     historyPlayHtml = `
                     <div class="help-option history-play-content">
-                        <ul class="history-list"></ul>
+                        <ul class="history-list">
+                            ${historyPlayItem.reverse().join('')}
+                        </ul>
                     </div>
                     `
                 }
                 const helpHtml = Help.mainHtml("History ", historyPlayHtml)
                 Modal.showModal("help-notifi",helpHtml, true)
-                historyPlay.history.forEach((ele)=>{
-                    $('.history-list').insertAdjacentHTML( "afterbegin",
-                    `<li class="history-item">
-                        <div class="history-item-c">
-                            <span>Correct Answer: ${ele.correctAnswer}% </span>
-                            <div class ="as-range"><span></span></div>
-                        </div>
-                        <div class="history-item-r">
-                            <span>Rounds: ${ele.rounds}</span>
-                            <div class ="as-range-rounds"><span></span></div>
-                        </div>
-                    </li>`
-                    )
-                    handleAsRange(ele.correctAnswer, ele.rounds , highScore , true)
+                historyPlay.history.forEach((ele, index) => {
+                    handleAsRange(ele.correctAnswer, ele.rounds , highScore , historyPlay.history.length - index - 1)
                 })
             })
         }
@@ -129,9 +131,6 @@ const Help = {
         })
 
     },
-    html(){
-
-    }
 }
 
 export const helpHtml = Help.mainHtml
