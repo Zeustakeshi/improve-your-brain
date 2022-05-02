@@ -4,7 +4,7 @@ import Modal from './action/handleModal.js'
 import timeLimit from "./action/handleTimeLimit.js"
 import historyPlay from './action/historyPlay.js'
 import config from './action/config.js'
-import Help from './help.js'
+import Help from './Help.js'
 import Settings from './Setting.js'
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
