@@ -34,7 +34,7 @@ const App = {
     },
     handleEvent(){
         const _this = this
-        //handle click setting
+        //handle click settings
         $('.setting').addEventListener('click', ()=>{
             Settings.renderSetting("Setting")
             Settings.handleOption()
